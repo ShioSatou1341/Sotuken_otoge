@@ -8,10 +8,12 @@ public class Tap : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject[] tapImage = new GameObject[3];
-    public GameObject[] judgeImage = new GameObject[3];
     private bool[] pushImg = new bool[3];
+    private bool[] judgeFlg = new bool[3];
 
     public GameObject nortPrefab;
+    public GameObject judgePrefab;
+
 
 
 
@@ -33,11 +35,13 @@ public class Tap : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             PushEfect(0);
+
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             PushEfect(1);
         }
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             PushEfect(2);
@@ -62,22 +66,33 @@ public class Tap : MonoBehaviour
         tapImage[1].SetActive(pushImg[1]);
         tapImage[2].SetActive(pushImg[2]);
 
-        judgeImage[0].SetActive(!pushImg[0]);//押してる＝falseだからその反対trueでアクティブにする
-        judgeImage[1].SetActive(!pushImg[1]);
-        judgeImage[2].SetActive(!pushImg[2]);
-
     }
 
     void PushEfect(int pushNo)//ボタンが押された時
     {
+        float bfTime = Time.realtimeSinceStartup;
         audioSource.PlayOneShot(tap);
         pushImg[pushNo] = false;//押されたら白非表示
+        switch (pushNo)
+        {
+            case 0:
+                Instantiate(judgePrefab, new Vector3(-5, 0, 0), Quaternion.identity);//判定生成
+                break;
+            case 1:
+                Instantiate(judgePrefab, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
+                break;
+            case 2:
+                Instantiate(judgePrefab, new Vector3(5, 0, 0), Quaternion.identity);//判定生成
+                break;
+        }
+        
+        Debug.Log("押した");
+
+        //押したときはその一回のみ反応してるから大丈夫
     }
     void KeyUpEfect(int pushNo)//ボタンから離れた時
     {
         pushImg[pushNo] = true;
     }
-
-
 
 }

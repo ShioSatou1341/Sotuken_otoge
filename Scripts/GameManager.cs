@@ -219,6 +219,7 @@ public class GameManager : MonoBehaviour
                 --Life;
                 SetlifeText(Life);
                 judgeText.text = ("MISS…");
+<<<<<<< HEAD
                 Debug.Log("MISS");
                 Debug.Log("-1");
                 if (Life == 0)//lifeが０になったら
@@ -227,6 +228,9 @@ public class GameManager : MonoBehaviour
                     SceneManager.LoadScene("GameOverScene");
                 }
                
+=======
+                //Debug.Log("MISS");
+>>>>>>> 7e2aaa04fff9006fdfd950a48574f8fb8d181c55
                 break;
         }
         
@@ -241,4 +245,3 @@ public class GameManager : MonoBehaviour
 //・（ジャッジごとに仕事分ける？）
 //・曲が終わったらシーン遷移
 //
-//判定表示BADとグレしか反応してない？（文字の切り替えもダメ）
