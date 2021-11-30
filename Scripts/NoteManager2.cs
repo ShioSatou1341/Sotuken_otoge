@@ -7,41 +7,49 @@ using UnityEngine.SceneManagement;
 public class NoteManager2 : MonoBehaviour
 {
     public GameObject notePrefab;
-    bool noteInstNow;//ƒm[ƒc‚Ì¶¬”
+    bool noteInstNow;//ƒm[ƒc‚ªì‚ê‚é‚©‚Ç‚¤‚©
+
+    private int cnt;
+    private int note_cnt;//ƒm[ƒc‘”
     // Start is called before the first frame update
     void Start()
     {
         noteInstNow = true;
+        cnt = 0;
+        note_cnt = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ƒtƒŒ[ƒ€‚Ì—P—\‚ðÝ‚¯‚ÄA‚»‚ÌŠÔ‚É1‚±ƒm[ƒc‚ð¶¬‚·‚é
-        if (Time.frameCount % 2 == 0 && noteInstNow == true)
+        if (Time.frameCount % 12 == 0 && noteInstNow == true)
         {
-            noteInstNow = false;
             SpawnNote();
-
         }
-
-        if (noteInstNow == false)
-        {
-            if (Time.frameCount % 2 == 0)
-            {
-                noteInstNow = true;
-            }
-
-        }
-
-
 
     }
 
     public void SpawnNote()
     {
-        Instantiate(notePrefab, new Vector3(-5, 10, 0), Quaternion.identity);//ƒm[ƒc¶¬
 
+        if (noteInstNow == true)
+        {
+            Instantiate(notePrefab, new Vector3(-5, 10, 0), Quaternion.identity);//ƒm[ƒc¶¬s
+            cnt++;
+            note_cnt++;
+        }
+
+
+        if (cnt > 0)
+        {
+            noteInstNow = false;
+            cnt++;
+        }
+        if (Time.frameCount % 12 == 0)
+        {
+            cnt = 0;
+            noteInstNow = true;
+        }
 
     }
 }

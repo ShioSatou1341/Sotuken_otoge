@@ -26,6 +26,10 @@ public class Tap : MonoBehaviour
         pushImg[0]= true;
         pushImg[1] = true;
         pushImg[2] = true;
+
+        //Instantiate(judgePrefab, new Vector3(-5, 0, 0), Quaternion.identity);//”»’è¶¬
+        //Instantiate(judgePrefab, new Vector3(0, 0, 0), Quaternion.identity);//”»’è¶¬
+        //Instantiate(judgePrefab, new Vector3(5, 0, 0), Quaternion.identity);//”»’è¶¬
     }
 
     // Update is called once per frame
@@ -85,7 +89,7 @@ public class Tap : MonoBehaviour
                 Instantiate(judgePrefab, new Vector3(5, 0, 0), Quaternion.identity);//”»’è¶¬
                 break;
         }
-        
+
         Debug.Log("‰Ÿ‚µ‚½");
 
         //‰Ÿ‚µ‚½‚Æ‚«‚Í‚»‚Ìˆê‰ñ‚Ì‚İ”½‰‚µ‚Ä‚é‚©‚ç‘åä•v

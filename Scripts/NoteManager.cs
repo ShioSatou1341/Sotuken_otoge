@@ -27,12 +27,6 @@ public class NoteManager : MonoBehaviour
             SpawnNote();
         }
         
-        //if (cnt > 10 && noteInstNow == false)
-        //{
-        //    cnt = 0;
-        //    Debug.Log(cnt);
-        //    noteInstNow = true;
-        //}
     }
 
     public void SpawnNote()
@@ -40,11 +34,9 @@ public class NoteManager : MonoBehaviour
 
         if (noteInstNow == true)
         {
-            Instantiate(notePrefab, new Vector3(0, 10, 0), Quaternion.identity);//ノーツ生成
-            //noteInstNow = false;
+            Instantiate(notePrefab, new Vector3(0, 10, 0), Quaternion.identity);//ノーツ生成s
             cnt++;
             note_cnt++;
-            Debug.Log("ノーツ生成" + note_cnt);
         }
 
 
@@ -58,8 +50,6 @@ public class NoteManager : MonoBehaviour
             cnt = 0;
             noteInstNow = true;
         }
-
-
 
     }
 }

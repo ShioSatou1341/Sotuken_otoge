@@ -8,9 +8,6 @@ using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     public GameObject notePrefab;
-    //public GameObject Heal;//回復ノーツ
-    public int Life;  //Life表示
-    
 
     private int totalCombo;//その時のコンボ数
     private int bestCombo;//最多コンボ数
@@ -33,8 +30,6 @@ public class GameManager : MonoBehaviour
     private Text missText;//パフェノーツ数テキスト
     private int missNote;//見逃しミス判定ノーツの個数
 
-    private Text lifeText;//lifeのテキスト
-   
 
     private bool inGame;//ゲーム中か否か
 
@@ -52,8 +47,6 @@ public class GameManager : MonoBehaviour
         goodNote = 0;
         badNote = 0;
         missNote = 0;
-        Life = 10;
-        
         judgeText = GameObject.Find("judgeText").GetComponent<Text>();
         comboText = GameObject.Find("Combo").GetComponent<Text>();
 
@@ -64,8 +57,8 @@ public class GameManager : MonoBehaviour
         goodText = GameObject.Find("goodText").GetComponent<Text>();
         badText = GameObject.Find("badText").GetComponent<Text>();
         missText = GameObject.Find("missText").GetComponent<Text>();
-        lifeText = GameObject.Find("Life").GetComponent<Text>();
-        SetlifeText(Life);
+
+
 
 
 
@@ -93,7 +86,6 @@ public class GameManager : MonoBehaviour
             goodText.text = (GoodText()).ToString();
             badText.text = (BadText()).ToString();
             missText.text = (MissText()).ToString();
-            
 
             if (Input.GetKeyDown(KeyCode.Return))//ゲームが終わった後もう一度enterで次のシーン
             {
@@ -102,12 +94,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-
-
-    }
-    private void SetlifeText(int Life)
-    {
-        lifeText.text = "Life:" + Life.ToString();
     }
 
     public void PushTitle()
@@ -125,7 +111,8 @@ public class GameManager : MonoBehaviour
         {
             bestCombo = totalCombo;
         }
-        
+
+
     }
     public void ComboKill()
     {
@@ -167,70 +154,37 @@ public class GameManager : MonoBehaviour
         switch (num)
         {
             case 1://パフェ
+                //ComboAdd();
                 perfectNote++;
-                //回復ノーツにあたると１回復
-                //if(GameObject.Find("Heal")==true) { Life++;
-                //    SetlifeText(Life);
-                //}
                 judgeText.text = ("PERFECT!");
                 Debug.Log("PERFECT");
                 break;
 
             case 2://グレ
+                //ComboAdd();
                 greatNote++;
-                //回復ノーツにあたると１回復
-                //if (GameObject.Find("Heal") == true)
-                //{
-                //    Life++;
-                //    SetlifeText(Life);
-                //}
                 judgeText.text = ("GREAT!");
                 Debug.Log("GREAT");
                 break;
             case 3://グド
+                //ComboAdd();
                 goodNote++;
-                //回復ノーツにあたると１回復
-                //if (GameObject.Find("Heal") == true)
-                //{
-                //    Life++;
-                //    SetlifeText(Life);
-                //}
                 judgeText.text = ("GOOD");
                 Debug.Log("GOOD");
                 break;
 
             case 4:
+                ComboKill();
                 badNote++;
-                --Life;
-                SetlifeText(Life);
                 judgeText.text = ("BAD");
                 Debug.Log("BAD");
-                Debug.Log("-1");
-
-                if (Life==0)//lifeが０になったら
-                {
-
-                    SceneManager.LoadScene("GameOverScene");
-                }
                 break;
 
             default:
+                ComboKill();
                 missNote++;
-                --Life;
-                SetlifeText(Life);
                 judgeText.text = ("MISS…");
-<<<<<<< HEAD
-                Debug.Log("MISS");
-                Debug.Log("-1");
-                if (Life == 0)//lifeが０になったら
-                {
-
-                    SceneManager.LoadScene("GameOverScene");
-                }
-               
-=======
                 //Debug.Log("MISS");
->>>>>>> 7e2aaa04fff9006fdfd950a48574f8fb8d181c55
                 break;
         }
         
