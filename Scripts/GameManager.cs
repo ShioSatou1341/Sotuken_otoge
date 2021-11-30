@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
             default:
                 missNote++;
                 judgeText.text = ("MISS…");
-                Debug.Log("MISS");
+                //Debug.Log("MISS");
                 break;
         }
         
@@ -195,4 +195,3 @@ public class GameManager : MonoBehaviour
 //・（ジャッジごとに仕事分ける？）
 //・曲が終わったらシーン遷移
 //
-//判定表示BADとグレしか反応してない？（文字の切り替えもダメ）

@@ -7,46 +7,61 @@ using UnityEngine.SceneManagement;
 public class NoteManager : MonoBehaviour
 {
     public GameObject notePrefab;
-    bool noteInstNow;//ノーツの生成数
+    bool noteInstNow;//ノーツが作れるかどうか
+
+    private int cnt;
+    private int note_cnt;//ノーツ総数
     // Start is called before the first frame update
     void Start()
     {
         noteInstNow = true;
+        cnt = 0;
+        note_cnt = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //フレームの猶予を設けて、その間に1こノーツを生成する
-        if (Time.frameCount % 10 == 0 && noteInstNow == true)
+        if(Time.frameCount%12==0&& noteInstNow == true)
         {
-            noteInstNow = false;
             SpawnNote();
-
         }
-
-        if (noteInstNow == false)
-        {
-            if (Time.frameCount % 10 == 0)
-            {
-                noteInstNow = true;
-            }
-
-        }
-
-
-
+        
+        //if (cnt > 10 && noteInstNow == false)
+        //{
+        //    cnt = 0;
+        //    Debug.Log(cnt);
+        //    noteInstNow = true;
+        //}
     }
 
     public void SpawnNote()
     {
-        Instantiate(notePrefab, new Vector3(0, 10, 0), Quaternion.identity);//ノーツ生成
-        
+
+        if (noteInstNow == true)
+        {
+            Instantiate(notePrefab, new Vector3(0, 10, 0), Quaternion.identity);//ノーツ生成
+            //noteInstNow = false;
+            cnt++;
+            note_cnt++;
+            Debug.Log("ノーツ生成" + note_cnt);
+        }
+
+
+        if (cnt > 0)
+        {
+            noteInstNow = false;
+            cnt++;
+        }
+        if (Time.frameCount % 12 == 0)
+        {
+            cnt = 0;
+            noteInstNow = true;
+        }
+
+
 
     }
 }
 //ノーツ生成修正すべきこと
 //・1フレーム単位での生成だと処理落ちしたときに抜けちゃう
-//10フレームに1回の範囲で生成したけどやっぱある程度抜けるね…
-//同時に複数のノーツも作りたいよね
-
