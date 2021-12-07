@@ -7,29 +7,16 @@ public class Tap : MonoBehaviour
     public AudioClip tap;//タップ音
     private AudioSource audioSource;
 
-    public GameObject[] tapImage = new GameObject[3];
-    private bool[] pushImg = new bool[3];
-    private bool[] judgeFlg = new bool[3];
-
-    public GameObject nortPrefab;
-    public GameObject judgePrefab;
-
-
+    //public GameObject nortPrefab;
+    public GameObject judgePrefab_Right;
+    public GameObject judgePrefab_Center;
+    public GameObject judgePrefab_Left;
 
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
-
-        //ボタンの白画像表示
-        pushImg[0]= true;
-        pushImg[1] = true;
-        pushImg[2] = true;
-
-        //Instantiate(judgePrefab, new Vector3(-5, 0, 0), Quaternion.identity);//判定生成
-        //Instantiate(judgePrefab, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
-        //Instantiate(judgePrefab, new Vector3(5, 0, 0), Quaternion.identity);//判定生成
     }
 
     // Update is called once per frame
@@ -51,52 +38,34 @@ public class Tap : MonoBehaviour
             PushEfect(2);
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftArrow))//キーを離した時
-        {
-            KeyUpEfect(0);
-        }
-        if (Input.GetKeyUp(KeyCode.DownArrow))//キーを離した時
-        {
-            KeyUpEfect(1);
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow))//キーを離した時
-        {
-            KeyUpEfect(2);
-        }
-        //All ifなのは、同時押しや押しっぱなしとかに対応できる
-
-
-        tapImage[0].SetActive(pushImg[0]);
-        tapImage[1].SetActive(pushImg[1]);
-        tapImage[2].SetActive(pushImg[2]);
-
     }
 
     void PushEfect(int pushNo)//ボタンが押された時
     {
-        float bfTime = Time.realtimeSinceStartup;
+        //float bfTime = Time.realtimeSinceStartup;
         audioSource.PlayOneShot(tap);
-        pushImg[pushNo] = false;//押されたら白非表示
+
         switch (pushNo)
         {
             case 0:
-                Instantiate(judgePrefab, new Vector3(-5, 0, 0), Quaternion.identity);//判定生成
+                Instantiate(judgePrefab_Left, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
+                //Destroy(judgePrefab_Left, 0.2f);
                 break;
             case 1:
-                Instantiate(judgePrefab, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
+                Instantiate(judgePrefab_Center, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
+                //Destroy(judgePrefab_Center, 0.2f);
                 break;
             case 2:
-                Instantiate(judgePrefab, new Vector3(5, 0, 0), Quaternion.identity);//判定生成
+                Instantiate(judgePrefab_Right, new Vector3(0, 0, 0), Quaternion.identity);//判定生成
+                //Destroy(judgePrefab_Right, 0.2f);
                 break;
         }
+
 
         Debug.Log("押した");
 
         //押したときはその一回のみ反応してるから大丈夫
     }
-    void KeyUpEfect(int pushNo)//ボタンから離れた時
-    {
-        pushImg[pushNo] = true;
-    }
+
 
 }
