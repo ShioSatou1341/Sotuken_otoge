@@ -3,7 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Delete
+  - JudgeCenter
+  - JudgeLeft
+  - JudgeRight
+  - Note_Down
+  - Note_Left
+  - Note_Right
+  - BAD
+  - PERFECT
+  - GOOD
+  - GREAT
+  - GOOD1
+  - GREAT1
+  - PERFECT1
+  - GREAT2
+  - GOOD2
+  - PERFECT2
+  - Score
   layers:
   - Default
   - TransparentFX
