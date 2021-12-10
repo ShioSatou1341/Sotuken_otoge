@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6964440602805312552}
   m_Layer: 5
   m_Name: PerfectArea (4)
-  m_TagString: GOOD
+  m_TagString: GOOD1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 60}
+  m_Size: {x: 200, y: 60}
   m_EdgeRadius: 0
 --- !u!114 &6964440602805312552
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229218658362514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56344c730b2b7b9419e102a0bb8d73af, type: 3}
   m_Name: 
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5312993619348764919}
   m_Layer: 5
   m_Name: PerfectArea (1)
-  m_TagString: GREAT
+  m_TagString: GREAT1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 30}
+  m_Size: {x: 200, y: 30}
   m_EdgeRadius: 0
 --- !u!114 &5312993619348764919
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229218852595302}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c09a4bd2b83ad4cb96a88cc35fa2a4, type: 3}
   m_Name: 
@@ -330,7 +330,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 60}
+  m_Size: {x: 200, y: 60}
   m_EdgeRadius: 0
 --- !u!1 &8008229219068662280
 GameObject:
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 8375954990649804717}
   m_Layer: 5
   m_Name: PerfectArea
-  m_TagString: PERFECT
+  m_TagString: PERFECT1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229219068662280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bfc28639d7e5af4285b914e2a81643a, type: 3}
   m_Name: 
@@ -462,7 +462,7 @@ GameObject:
   - component: {fileID: 239193274922943281}
   m_Layer: 5
   m_Name: PerfectArea (2)
-  m_TagString: GREAT
+  m_TagString: GREAT1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,7 +548,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 30}
+  m_Size: {x: 200, y: 30}
   m_EdgeRadius: 0
 --- !u!114 &239193274922943281
 MonoBehaviour:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229220248915256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9c09a4bd2b83ad4cb96a88cc35fa2a4, type: 3}
   m_Name: 
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 826236399765274034}
   m_Layer: 5
   m_Name: PerfectArea (3)
-  m_TagString: GOOD
+  m_TagString: GOOD1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -663,7 +663,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 150, y: 60}
+  m_Size: {x: 200, y: 60}
   m_EdgeRadius: 0
 --- !u!114 &826236399765274034
 MonoBehaviour:
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229220336817471}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56344c730b2b7b9419e102a0bb8d73af, type: 3}
   m_Name: 
@@ -686,10 +686,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8008229220752800726}
-  - component: {fileID: 8008229220752800727}
+  - component: {fileID: 8189510923808571531}
   m_Layer: 5
   m_Name: JudgeArea_Left
-  m_TagString: Note_Left
+  m_TagString: JudgeLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -719,29 +719,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!61 &8008229220752800727
-BoxCollider2D:
+--- !u!114 &8189510923808571531
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8008229220752800721}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -180}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 200, y: 200}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfc28639d7e5af4285b914e2a81643a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
