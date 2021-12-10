@@ -7,9 +7,11 @@ using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
+    public static int sp = 0;//スコア
     public GameObject notePrefab;
     //public GameObject Heal;//回復ノーツ
     public int Life;  //Life表示
+    private int Score;//スコア
 
     private int totalCombo;//その時のコンボ数
     private int bestCombo;//最多コンボ数
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     private Text lifeText;//lifeのテキスト
 
+    private Text scoreText;//scoreのテキスト
+
     private bool inGame;//ゲーム中か否か
 
     private Canvas resultCanvas;//リザルトキャンバス
@@ -51,6 +55,8 @@ public class GameManager : MonoBehaviour
         badNote = 0;
         missNote = 0;
         Life = 10;
+        Score = 0;
+
         judgeText = GameObject.Find("judgeText").GetComponent<Text>();
         comboText = GameObject.Find("Combo").GetComponent<Text>();
 
@@ -62,8 +68,9 @@ public class GameManager : MonoBehaviour
         badText = GameObject.Find("badText").GetComponent<Text>();
         missText = GameObject.Find("missText").GetComponent<Text>();
         lifeText = GameObject.Find("Life").GetComponent<Text>();
+        scoreText = GameObject.Find("Score").GetComponent<Text>();
         SetlifeText(Life);
-
+        SetscoreText(Score);
 
 
 
@@ -108,6 +115,21 @@ public class GameManager : MonoBehaviour
     private void SetlifeText(int Life)
     {
         lifeText.text = "Life:" + Life.ToString();
+    }
+    private void SetscoreText(int Score)
+    {
+        scoreText.text = "Score:" + Score.ToString();
+    }
+    public void ResultScore()
+    {
+        PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.Save();
+        Debug.Log("save" + Score);
+    }
+    public void ScoreAdd()
+    {
+        sp = Score;
+        Debug.Log(sp + ":result");
     }
     public void ComboAdd()
     {
@@ -168,6 +190,13 @@ public class GameManager : MonoBehaviour
                 //if(GameObject.Find("Heal")==true) { Life++;
                 //    SetlifeText(Life);
                 //}
+                Score += 50;
+                ScoreAdd();
+                SetscoreText(Score);
+                PlayerPrefs.SetInt("Score", Score);
+                PlayerPrefs.Save();
+                Debug.Log("save" + Score);
+                Debug.Log(PlayerPrefs.GetInt("Score", 0));
                 judgeText.text = ("PERFECT!");
                 Debug.Log("PERFECT");
                 break;
@@ -181,6 +210,13 @@ public class GameManager : MonoBehaviour
                 //    Life++;
                 //    SetlifeText(Life);
                 //}
+                Score += 30;
+                ScoreAdd();
+                SetscoreText(Score);
+                PlayerPrefs.SetInt("Score", Score);
+                PlayerPrefs.Save();
+                Debug.Log("save" + Score);
+                Debug.Log(PlayerPrefs.GetInt("Score", 0));
                 judgeText.text = ("GREAT!");
                 Debug.Log("GREAT");
                 break;
@@ -193,6 +229,13 @@ public class GameManager : MonoBehaviour
                 //    Life++;
                 //    SetlifeText(Life);
                 //}
+                Score += 10;
+                ScoreAdd();
+                SetscoreText(Score);
+                Debug.Log("save" + Score);
+                PlayerPrefs.SetInt("Score", Score);
+                PlayerPrefs.Save();
+                Debug.Log(PlayerPrefs.GetInt("Score", 0));
                 judgeText.text = ("GOOD");
                 Debug.Log("GOOD");
                 break;
