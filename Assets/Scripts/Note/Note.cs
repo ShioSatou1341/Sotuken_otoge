@@ -9,14 +9,15 @@ public class Note : MonoBehaviour
 
     private GameObject gameManager;
     private GameObject judgePrefab;
-    private bool judgeOnOff;
+    public bool judgeOnOff;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
         judgePrefab = GameObject.Find("Judge");
-        judgeOnOff = true;
+        judgeOnOff = false;//はじめはオフにしたい
+
     }
 
     // Update is called once per frame
@@ -25,12 +26,21 @@ public class Note : MonoBehaviour
         transform.Translate(0, moveSpeed * Time.deltaTime, 0);//ノーツの移動
     }
 
+    public void JudgeSet()
+    {
+        judgeOnOff = true;
+    }
 
-    void OnTriggerEnter2D(Collider2D coll)//判定はキーを押したときのみ表示される
+    void noteSerch()//ノーツが自分の前に被っているかどうか探す
+    {
+
+    }
+
+    void OnTriggerExit2D(Collider2D coll)//判定はキーを押したときのみ表示される
     {
         //if (coll.CompareTag("JudgeCenter"))
         //{
-            while (judgeOnOff)
+            while (judgeOnOff==true)
             {
 
                 if (coll.CompareTag("PERFECT"))//ジャッジエリアから外れたら
@@ -87,7 +97,10 @@ public class Note : MonoBehaviour
 }
 //ノーツ１つに付けるべきもの
 /*
- * ノーツそれぞれにキー入力の種類を持たせる
- * 
- キーを押す→ノーツと判定の位置を取る→判定ごとの処理をする
+ *縦連とかになってるところで近いノーツ一緒に判定始めちゃう
+ *ノーツ感覚が【狭いとき】にノーツの距離を図ればよくね？
+ *
+ *それか、ノーツ自体にY方向に他の同タグノーツがいるかどうか探す
+ *→いなければtrueになって普通に判定にうつる
+ *→いたらまだ自分はjudgeOnOffはfalseのままにする？とか？
  */
