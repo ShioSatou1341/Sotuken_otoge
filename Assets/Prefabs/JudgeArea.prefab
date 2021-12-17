@@ -229,7 +229,6 @@ GameObject:
   - component: {fileID: 6260483726807996001}
   - component: {fileID: 6260483726807996006}
   - component: {fileID: 6260483726807996007}
-  - component: {fileID: 947484578635255545}
   m_Layer: 5
   m_Name: PerfectArea (4)
   m_TagString: GOOD
@@ -320,18 +319,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 60}
   m_EdgeRadius: 0
---- !u!114 &947484578635255545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260483726807996005}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34d38bf98f977544a053852cc2cf712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6260483726985450641
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +331,6 @@ GameObject:
   - component: {fileID: 6260483726985450669}
   - component: {fileID: 6260483726985450642}
   - component: {fileID: 6260483726985450643}
-  - component: {fileID: 3458173854109730556}
   m_Layer: 5
   m_Name: PerfectArea (1)
   m_TagString: GREAT
@@ -435,18 +421,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 30}
   m_EdgeRadius: 0
---- !u!114 &3458173854109730556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260483726985450641}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61302301c32a3154f82052af49873610, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6260483727275034918
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +488,6 @@ GameObject:
   - component: {fileID: 6260483727309094859}
   - component: {fileID: 6260483727309094856}
   - component: {fileID: 6260483727309094857}
-  - component: {fileID: 2109092382776584493}
   m_Layer: 5
   m_Name: PerfectArea (2)
   m_TagString: GREAT
@@ -605,18 +578,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 30}
   m_EdgeRadius: 0
---- !u!114 &2109092382776584493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260483727309094863}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61302301c32a3154f82052af49873610, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6260483727413766088
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +590,6 @@ GameObject:
   - component: {fileID: 6260483727413766084}
   - component: {fileID: 6260483727413766085}
   - component: {fileID: 6260483727413766090}
-  - component: {fileID: 7170756949045573617}
   m_Layer: 5
   m_Name: PerfectArea (3)
   m_TagString: GOOD
@@ -720,18 +680,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 60}
   m_EdgeRadius: 0
---- !u!114 &7170756949045573617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260483727413766088}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34d38bf98f977544a053852cc2cf712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6402322831262629400
 GameObject:
   m_ObjectHideFlags: 0
