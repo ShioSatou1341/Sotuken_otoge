@@ -30,6 +30,7 @@ public class Result : MonoBehaviour
         ResultText.text = "Score:" + Score.ToString();
         Debug.Log(":Load" + Score);
         Debug.Log(":Set" + Score);
+       
     }
     //public void LoadScore()
     //{
