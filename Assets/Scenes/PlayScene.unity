@@ -1373,6 +1373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 583416304}
   - component: {fileID: 583416305}
+  - component: {fileID: 583416306}
   m_Layer: 6
   m_Name: NoteManager2
   m_TagString: Untagged
@@ -1407,6 +1408,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notePrefab: {fileID: 5843107925215477412, guid: b01dbcc24cecd6f4782a401fe97bdd7c, type: 3}
+--- !u!114 &583416306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583416303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 7bb744d4f0579854f8596d6d66c0d344, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 583416305}
+          m_TargetAssemblyTypeName: NoteManager2, Assembly-CSharp
+          m_MethodName: SpawnNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &668401295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694563300}
   - component: {fileID: 694563299}
+  - component: {fileID: 694563301}
   m_Layer: 6
   m_Name: NoteManager
   m_TagString: Untagged
@@ -1646,6 +1678,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694563301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694563298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 7bb744d4f0579854f8596d6d66c0d344, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 694563299}
+          m_TargetAssemblyTypeName: NoteManager, Assembly-CSharp
+          m_MethodName: SpawnNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &727157741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,6 +2949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209037749}
   - component: {fileID: 1209037748}
+  - component: {fileID: 1209037750}
   m_Layer: 0
   m_Name: NoteManager3
   m_TagString: Untagged
@@ -2921,6 +2984,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1209037750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209037747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 7bb744d4f0579854f8596d6d66c0d344, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1209037748}
+          m_TargetAssemblyTypeName: NoteManager3, Assembly-CSharp
+          m_MethodName: SpawnNote
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1306482717
 GameObject:
   m_ObjectHideFlags: 0

@@ -418,7 +418,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6260483727275034913}
   - component: {fileID: 8369003109529154998}
-  - component: {fileID: -5414509403090665213}
   m_Layer: 5
   m_Name: JudgeArea
   m_TagString: JudgeCenter
@@ -462,18 +461,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7635de95d6a230947aa37bb55b791d1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-5414509403090665213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6260483727275034918}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d8b7540f2e6ac4eb1d71a6058bce24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6260483727309094863
