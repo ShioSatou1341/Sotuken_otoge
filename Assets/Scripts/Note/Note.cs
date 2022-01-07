@@ -9,14 +9,19 @@ public class Note : MonoBehaviour
 
     private GameObject gameManager;
     private GameObject judgePrefab;
-    public bool judgeOnOff;
+    private bool judgeOnOff;
+    private Vector2 rayPos;//raycast2dを飛ばす位置
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
         judgePrefab = GameObject.Find("Judge");
-        judgeOnOff = false;//はじめはオフにしたい
+        judgeOnOff = true;//はじめはオフにしたい
+        Application.targetFrameRate = 60; //FPSを60に設定 
+        rayPos = new Vector2(0, 0);
 
     }
 
@@ -24,17 +29,29 @@ public class Note : MonoBehaviour
     void Update()
     {
         transform.Translate(0, moveSpeed * Time.deltaTime, 0);//ノーツの移動
+        rayPos = gameObject.transform.position;
+        rayPos.y -= 0.1f;//y位置をずらす
+
+        RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.down, 1.0f);//ノーツから下向きに距離1以内にいるか探す
+        Debug.DrawRay(rayPos, Vector2.down * 1.0f, Color.red, 0.1f, false);//デバッグ用
+        if (hit.collider)//何かあたって、
+        {
+            if (hit.collider.gameObject.CompareTag("Note_Down"))//それがNote_Downタグならば
+            {
+                judgeOnOff = false;//まだ判定しない
+                Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
+            }
+
+        }
+        else//いなければ
+        {
+            judgeOnOff = true;//判定可能
+            Debug.Log("先頭" + gameObject.name);
+
+        }
+
     }
 
-    public void JudgeSet()
-    {
-        judgeOnOff = true;
-    }
-
-    void noteSerch()//ノーツが自分の前に被っているかどうか探す
-    {
-
-    }
 
     void OnTriggerExit2D(Collider2D coll)//判定はキーを押したときのみ表示される
     {
