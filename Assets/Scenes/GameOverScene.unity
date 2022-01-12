@@ -456,8 +456,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 876432767}
-        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: PLAY
+        m_TargetAssemblyTypeName: ResultManager, Assembly-CSharp
+        m_MethodName: PushYesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -672,11 +672,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 876432766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40d3079f7a0d8b48bb2ede0bf105a21, type: 3}
+  m_Script: {fileID: 11500000, guid: 828bd1f48ecf89645b29e63f8f5cd747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button_play: {fileID: 0}
-  button_menu: {fileID: 0}
 --- !u!4 &876432768
 Transform:
   m_ObjectHideFlags: 0
@@ -857,8 +855,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 876432767}
-        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: MENU
+        m_TargetAssemblyTypeName: ResultManager, Assembly-CSharp
+        m_MethodName: PushTitleBackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -915,7 +913,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1693206628}
-  - component: {fileID: 1693206627}
   m_Layer: 0
   m_Name: ButtonControl
   m_TagString: Untagged
@@ -923,18 +920,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1693206627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693206626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5349cc2ff6f9ffe43b1480934712b248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1693206628
 Transform:
   m_ObjectHideFlags: 0
