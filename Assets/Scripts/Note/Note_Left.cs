@@ -36,14 +36,14 @@ public class Note_Left : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Note_Left"))//それがNote_Leftタグならば
             {
                 judgeOnOff = false;//まだ判定しない
-                Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
+                //Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
             }
 
         }
         else//いなければ
         {
             judgeOnOff = true;//判定可能
-            Debug.Log("先頭" + gameObject.name);
+            //Debug.Log("先頭" + gameObject.name);
 
         }
     }
@@ -52,8 +52,6 @@ public class Note_Left : MonoBehaviour
 
         while (judgeOnOff)
         {
-            //if (coll.CompareTag("JudgeCenter"))
-            //{
             if (coll.CompareTag("PERFECT1"))//ジャッジエリアから外れたら
             {
                 gameManager.GetComponent<GameManager>().judgeKind(1);
@@ -98,12 +96,7 @@ public class Note_Left : MonoBehaviour
                 break;
             }
 
-            //}
-
         }
-
-
-
 
     }
 

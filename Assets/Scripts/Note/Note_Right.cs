@@ -37,19 +37,19 @@ public class Note_Right : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Note_Right"))//それがNote_Rightタグならば
             {
                 judgeOnOff = false;//まだ判定しない
-                Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
+                //Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
             }
 
         }
         else//いなければ
         {
             judgeOnOff = true;//判定可能
-            Debug.Log("先頭" + gameObject.name);
+            //Debug.Log("先頭" + gameObject.name);
 
         }
 
     }
-    void OnTriggerExit2D(Collider2D coll)//判定はキーを押したときのみ表示される
+    void OnTriggerEnter2D(Collider2D coll)//判定はキーを押したときのみ表示される
     {
 
         while (judgeOnOff)

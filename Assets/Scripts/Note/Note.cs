@@ -19,7 +19,7 @@ public class Note : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         judgePrefab = GameObject.Find("Judge");
-        judgeOnOff = true;//はじめはオフにしたい
+        judgeOnOff = false;//はじめはオフにしたい
         Application.targetFrameRate = 60; //FPSを60に設定 
         rayPos = new Vector2(0, 0);
 
@@ -39,85 +39,76 @@ public class Note : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("Note_Down"))//それがNote_Downタグならば
             {
                 judgeOnOff = false;//まだ判定しない
-                Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
+                //Debug.Log(gameObject.name + "の前に" + hit.collider.gameObject.name + "がいる");
             }
 
         }
         else//いなければ
         {
             judgeOnOff = true;//判定可能
-            Debug.Log("先頭" + gameObject.name);
+            //Debug.Log("先頭" + gameObject.name);
 
         }
 
     }
 
 
-    void OnTriggerExit2D(Collider2D coll)//判定はキーを押したときのみ表示される
+    void OnTriggerEnter2D(Collider2D coll)//判定はキーを押したときのみ表示される
     {
-        //if (coll.CompareTag("JudgeCenter"))
-        //{
-            while (judgeOnOff==true)
+        while (judgeOnOff)
+        {
+
+            if (coll.CompareTag("PERFECT"))//ジャッジエリアから外れたら
             {
-
-                if (coll.CompareTag("PERFECT"))//ジャッジエリアから外れたら
-                {
-                    gameManager.GetComponent<GameManager>().judgeKind(1);
-                    gameManager.GetComponent<GameManager>().ComboAdd();
-                    Destroy(gameObject);
-                    judgeOnOff = false;
-                }
-                else if (coll.CompareTag("GREAT"))//ジャッジエリアから外れたら
-                {
-                    gameManager.GetComponent<GameManager>().judgeKind(2);
-                    gameManager.GetComponent<GameManager>().ComboAdd();
-                    Destroy(gameObject);
-                    judgeOnOff = false;
-
-                }
-                else if (coll.CompareTag("GOOD"))//ジャッジエリアから外れたら
-                {
-                    gameManager.GetComponent<GameManager>().judgeKind(3);
-                    gameManager.GetComponent<GameManager>().ComboAdd();
-                    Destroy(gameObject);
-                    judgeOnOff = false;
-
-                }
-                else if (coll.CompareTag("BAD"))//ジャッジエリアから外れたら
-                {
-                    gameManager.GetComponent<GameManager>().judgeKind(4);
-                    gameManager.GetComponent<GameManager>().ComboKill();
-                    Destroy(gameObject);
-                    judgeOnOff = false;
-
-                }
-                
-                else if (coll.CompareTag("Delete"))//ジャッジエリアから外れたら
-                {
-                    gameManager.GetComponent<GameManager>().judgeKind(5);
-                    gameManager.GetComponent<GameManager>().ComboKill();
-                    Destroy(gameObject);
-                    judgeOnOff = false;
-                }
-                else
-                {
-                    break;
-                }
+                gameManager.GetComponent<GameManager>().judgeKind(1);
+                gameManager.GetComponent<GameManager>().ComboAdd();
+                Destroy(gameObject);
+                judgeOnOff = false;
+            }
+            else if (coll.CompareTag("GREAT"))//ジャッジエリアから外れたら
+            {
+                gameManager.GetComponent<GameManager>().judgeKind(2);
+                gameManager.GetComponent<GameManager>().ComboAdd();
+                Destroy(gameObject);
+                judgeOnOff = false;
 
             }
-        //}
+            else if (coll.CompareTag("GOOD"))//ジャッジエリアから外れたら
+            {
+                gameManager.GetComponent<GameManager>().judgeKind(3);
+                gameManager.GetComponent<GameManager>().ComboAdd();
+                Destroy(gameObject);
+                judgeOnOff = false;
 
+            }
+            else if (coll.CompareTag("BAD"))//ジャッジエリアから外れたら
+            {
+                gameManager.GetComponent<GameManager>().judgeKind(4);
+                gameManager.GetComponent<GameManager>().ComboKill();
+                Destroy(gameObject);
+                judgeOnOff = false;
 
+            }
+
+            else if (coll.CompareTag("Delete"))//ジャッジエリアから外れたら
+            {
+                gameManager.GetComponent<GameManager>().judgeKind(5);
+                gameManager.GetComponent<GameManager>().ComboKill();
+                Destroy(gameObject);
+                judgeOnOff = false;
+            }
+            else
+            {
+                break;
+            }
+
+        }
 
     }
 
 }
 //ノーツ１つに付けるべきもの
 /*
- *縦連とかになってるところで近いノーツ一緒に判定始めちゃう
- *ノーツ感覚が【狭いとき】にノーツの距離を図ればよくね？
- *
- *それか、ノーツ自体にY方向に他の同タグノーツがいるかどうか探す
- *→いなければtrueになって普通に判定にうつる
- *→いたらまだ自分はjudgeOnOffはfalseのままにする？とか？
+ * なぜか赤ノーツのみコンボ2つ増えてまう。
+ * 他の左右からのノーツはコンボは1つずつ増えるのにね
  */
