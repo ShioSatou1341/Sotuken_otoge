@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CureNote : MonoBehaviour
+public class Heal_Center : MonoBehaviour
 {
     private float moveSpeed = -7.5f;
 
