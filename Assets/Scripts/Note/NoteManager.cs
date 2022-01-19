@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class NoteManager : MonoBehaviour
 {
     public GameObject notePrefab;
+    public GameObject healPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -26,4 +27,9 @@ public class NoteManager : MonoBehaviour
 
     }
 
+    public void SpawnHeal()//TLでマーカーを置くことでそのタイミングで生成できる
+    {
+        Instantiate(healPrefab, new Vector3(0, 10, 0), Quaternion.identity);//ノーツ生成s
+
+    }
 }
