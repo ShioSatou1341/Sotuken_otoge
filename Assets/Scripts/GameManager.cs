@@ -8,7 +8,6 @@ using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     public static int sp = 0;//スコア
-    public GameObject notePrefab;
     //public GameObject Heal;//回復ノーツ
     public int Life;  //Life表示
     private int Score;//スコア
@@ -54,7 +53,7 @@ public class GameManager : MonoBehaviour
         goodNote = 0;
         badNote = 0;
         missNote = 0;
-        Life = 10;
+        //Life = 10;
         Score = 0;
 
         judgeText = GameObject.Find("judgeText").GetComponent<Text>();
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
         missText = GameObject.Find("missText").GetComponent<Text>();
         lifeText = GameObject.Find("Life").GetComponent<Text>();
         scoreText = GameObject.Find("Score").GetComponent<Text>();
-        SetlifeText(Life);
+        SetlifeText();
         SetscoreText(Score);
 
 
@@ -112,7 +111,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
-    private void SetlifeText(int Life)
+    private void SetlifeText(/*int Life*/)
     {
         lifeText.text = "Life:" + Life.ToString();
     }
@@ -148,9 +147,6 @@ public class GameManager : MonoBehaviour
     {
         totalCombo=0;
         comboText.text = (totalCombo).ToString();
-        
-
-        //badText.gameObject.SetActive(true);
 
     }
 
@@ -179,6 +175,16 @@ public class GameManager : MonoBehaviour
         return missNote;
     }
 
+    public void LifeAdd()
+    {
+        if (Life < 10)//Life上限10とする
+        {
+            Life += 1;
+            SetlifeText();
+        }
+
+    }
+
     public void judgeKind(int num)
     {
         switch (num)
@@ -188,7 +194,7 @@ public class GameManager : MonoBehaviour
                 perfectNote++;
                 //回復ノーツにあたると１回復
                 //if(GameObject.Find("Heal")==true) { Life++;
-                //    SetlifeText(Life);
+                SetlifeText();
                 //}
                 Score += 50;
                 ScoreAdd();
@@ -208,7 +214,7 @@ public class GameManager : MonoBehaviour
                 //if (GameObject.Find("Heal") == true)
                 //{
                 //    Life++;
-                //    SetlifeText(Life);
+                SetlifeText();
                 //}
                 Score += 30;
                 ScoreAdd();
@@ -227,7 +233,7 @@ public class GameManager : MonoBehaviour
                 //if (GameObject.Find("Heal") == true)
                 //{
                 //    Life++;
-                //    SetlifeText(Life);
+                SetlifeText();
                 //}
                 Score += 10;
                 ScoreAdd();
@@ -244,7 +250,7 @@ public class GameManager : MonoBehaviour
                 ComboKill();
                 badNote++;
                 --Life;
-                SetlifeText(Life);
+                SetlifeText();
                 judgeText.text = ("BAD");
                 Debug.Log("BAD");
 
@@ -258,7 +264,7 @@ public class GameManager : MonoBehaviour
             default:
                 ComboKill();
                 --Life;
-                SetlifeText(Life);
+                SetlifeText();
                 missNote++;
                 judgeText.text = ("MISS…");
                 //Debug.Log("MISS");
