@@ -10,6 +10,7 @@ public class DifficultButton : MonoBehaviour
     public Button button_hard;
     public Button button_back;
 
+    private Text musicTitleText;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,9 @@ public class DifficultButton : MonoBehaviour
         button_easy = GameObject.Find("Canvas/nanido/Easy").GetComponent<Button>();
         button_hard = GameObject.Find("Canvas/nanido/Hard").GetComponent<Button>();
         button_back = GameObject.Find("Canvas/BackButton").GetComponent<Button>();
-
+        
+        musicTitleText = GameObject.Find("musicTitle").GetComponent<Text>();
+        
         Button_Move();
     }
 
@@ -38,13 +41,28 @@ public class DifficultButton : MonoBehaviour
             default:
                 break;
         }
+        if (Input.GetKey(KeyCode.Backspace))
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
     }
 
     public void EASY()
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Kirakiraboshi_easy");
+            if (musicTitleText.text.ToString() == "キラキラ星")
+            {
+                SceneManager.LoadScene("Kirakiraboshi_easy");
+            }
+            else if(musicTitleText.text.ToString() == "Potato")
+            {
+                SceneManager.LoadScene("Potato_easy");            
+            }
+            else
+            {
+                SceneManager.LoadScene("Kirakiraboshi_easy");
+            }
             Debug.Log("簡単");
         }
     }
@@ -53,7 +71,19 @@ public class DifficultButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Kirakiraboshi_hard"); //仮
+            if (musicTitleText.text.ToString() == "キラキラ星")
+            {
+                SceneManager.LoadScene("Kirakiraboshi_hard");
+            }
+            else if (musicTitleText.text.ToString() == "Potato")
+            {
+                SceneManager.LoadScene("Potato_hard");
+            }
+            else
+            {
+                SceneManager.LoadScene("Kirakiraboshi_hard");
+            }
+
             Debug.Log("ムズイ");
         }
     }

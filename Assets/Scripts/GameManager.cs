@@ -71,7 +71,9 @@ public class GameManager : MonoBehaviour
         SetlifeText();
         SetscoreText(Score);
 
-
+        PlayerPrefs.SetString("Play", SceneManager.GetActiveScene().name);//今動かしてる譜面のシーンを取得
+        PlayerPrefs.Save();
+        
 
         inGame = true;
     }
@@ -80,33 +82,26 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //int val = int.Parse(comboText.text);
-        if (inGame == true)
-        {
-            if (Input.GetKeyUp(KeyCode.Return))//ノーツ流し終わったら終了判定ほしかったね
-            {
-                inGame = false;
+        //if (inGame == true)
+        //{
+        //    if (Input.GetKeyUp(KeyCode.Return))//ノーツ流し終わったら終了判定ほしかったね
+        //    {
+        //        inGame = false;
 
-            }
-        }
-        if (inGame == false)
-        {
-            //resultCanvas.enabled = true;
-            //resultText.text = (bestCombo).ToString();
-            //perfectText.text = (PerfectText()).ToString();
-            //greatText.text = (GreatText()).ToString();
-            //goodText.text = (GoodText()).ToString();
-            //badText.text = (BadText()).ToString();
-            //missText.text = (MissText()).ToString();
-
-            //if (Input.GetKeyDown(KeyCode.Return))//ゲームが終わった後もう一度enterで次のシーン
-            //{
-
-                SceneManager.LoadScene("ResultScene2");
-            //}
-        }
+        //    }
+        //}
+        //if (inGame == false)
+        //{
+        //   SceneManager.LoadScene("ResultScene2");
+        //}
 
     }
 
+    public void Result()
+    {
+        SceneManager.LoadScene("ResultScene2");
+
+    }
     public void PushTitle()
     {
         SceneManager.LoadScene("StartScene");

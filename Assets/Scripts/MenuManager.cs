@@ -10,8 +10,8 @@ public class MenuManager : MonoBehaviour
     public GameObject button_music2;
     public GameObject button_music3;
     public GameObject button_music4;
-    public GameObject button_music5;
-    public GameObject button_music6;
+    //public GameObject button_music5;
+    //public GameObject button_music6;
     public Button button_back;
 
     public AudioClip AudioSE;
@@ -19,17 +19,10 @@ public class MenuManager : MonoBehaviour
 
     public Text dftext;
     public Text dftext2;
-    public Text dftext3;
+    //public Text dftext3;
 
-    //public Text button_text1;
-    //public Text button_text2;
-    //public Text button_text3;
-    //public Text button_text4;
-
-
-    //public Text Dfmusic1;
-    // public Text Dfmusic2;
     int t = 0;
+    public int musicNum;//ã»êîÇ¢Ç∂ÇÈ
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +31,10 @@ public class MenuManager : MonoBehaviour
         t = 0;  //swichï∂ÇÃïœêî
         dftext = GameObject.Find("Canvas/MusicTitle1").GetComponent<Text>();
         dftext2 = GameObject.Find("Canvas/MusicTitle2").GetComponent<Text>();
-        dftext3 = GameObject.Find("Canvas/MusicTitle3").GetComponent<Text>();
+        //dftext3 = GameObject.Find("Canvas/MusicTitle3").GetComponent<Text>();
         dftext.enabled = false;
         dftext2.enabled = false;
-        dftext3.enabled = false;
+        //dftext3.enabled = false;
 
         button_back = GameObject.Find("Canvas/Titleback").GetComponent<Button>();
 
@@ -49,8 +42,8 @@ public class MenuManager : MonoBehaviour
         button_music2.SetActive(false);
         button_music3.SetActive(false);
         button_music4.SetActive(false);
-        button_music5.SetActive(false);
-        button_music6.SetActive(false);
+        //button_music5.SetActive(false);
+        //button_music6.SetActive(false);
 
         //button_music1 = GameObject.Find("Canvas/Shorteasy1").GetComponent<Button>();
         //button_music2 = GameObject.Find("Canvas/ShortHard2").GetComponent<Button>();
@@ -88,18 +81,22 @@ public class MenuManager : MonoBehaviour
             case 1:
                 NANNIDO2();
                 break;
-            case 2:
-                NANNIDO3();
-                break;
+            //case 2:
+            //    NANNIDO3();
+            //    break;
             default:
                 break;
         }
 
-        if(Input.GetKeyDown(KeyCode.B))
+        //if(Input.GetKeyDown(KeyCode.B))
+        //{
+        //    TITLE();   //ãŸã}
+        //}
+        if (Input.GetKey(KeyCode.Backspace))
         {
-            TITLE();   //ãŸã}
+            SceneManager.LoadScene("TitleScene");
         }
-        
+
 
 
     }
@@ -108,14 +105,14 @@ public class MenuManager : MonoBehaviour
     {
         dftext.enabled = true;
         dftext2.enabled = false;
-        dftext3.enabled = false;
+        //dftext3.enabled = false;
 
         button_music1.SetActive(true);
         button_music2.SetActive(true);
         button_music3.SetActive(false);
         button_music4.SetActive(false);
-        button_music5.SetActive(false);
-        button_music6.SetActive(false);
+        //button_music5.SetActive(false);
+        //button_music6.SetActive(false);
 
         //button_music1.enabled = true;
         //button_music2.enabled = true;
@@ -133,7 +130,6 @@ public class MenuManager : MonoBehaviour
         {
             //audiosource.PlayOneShot(AudioSE);
             SceneManager.LoadScene("DifficultScene");
-            //SceneManager.LoadScene("Kirakiraboshi_easy");
             
         }
         Button_Move();
@@ -143,14 +139,14 @@ public class MenuManager : MonoBehaviour
     {
         dftext.enabled = false;
         dftext2.enabled = true;
-        dftext3.enabled = false;
+        //dftext3.enabled = false;
 
         button_music1.SetActive(false);
         button_music2.SetActive(false);
         button_music3.SetActive(true);
         button_music4.SetActive(true);
-        button_music5.SetActive(false);
-        button_music6.SetActive(false);
+        //button_music5.SetActive(false);
+        //button_music6.SetActive(false);
 
         //button_music1.enabled = false;
         //button_music2.enabled = false;
@@ -166,39 +162,36 @@ public class MenuManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             //audiosource.PlayOneShot(AudioSE);
-            SceneManager.LoadScene("DifficultScene");
+            SceneManager.LoadScene("DifficultScene2");
 
-            //SceneManager.LoadScene("Kirakiraboshi_easy");
         }
         Button_Move();
     }
 
-    public void NANNIDO3()
-    {
-        int Nannidos = 0;
+    //public void NANNIDO3()
+    //{
+    //    int Nannidos = 0;
 
-        dftext.enabled = false;
-        dftext2.enabled = false;
-        dftext3.enabled = true;
+    //    dftext.enabled = false;
+    //    dftext2.enabled = false;
+    //    //dftext3.enabled = true;
 
-        button_music1.SetActive(false);
-        button_music2.SetActive(false);
-        button_music3.SetActive(true);
-        button_music4.SetActive(true);
-        button_music5.SetActive(true);
-        button_music6.SetActive(true);
+    //    button_music1.SetActive(false);
+    //    button_music2.SetActive(false);
+    //    button_music3.SetActive(true);
+    //    button_music4.SetActive(true);
+    //    //button_music5.SetActive(true);
+    //    //button_music6.SetActive(true);
 
-        Debug.Log("music3");
+    //    Debug.Log("music3");
 
-        if (Input.GetKey(KeyCode.Return))
-        {
-            //audiosource.PlayOneShot(AudioSE);
-            SceneManager.LoadScene("DifficultScene");
-
-            //SceneManager.LoadScene("PlayScene");
-        }
-        Button_Move();
-    }
+    //    if (Input.GetKey(KeyCode.Return))
+    //    {
+    //        //audiosource.PlayOneShot(AudioSE);
+    //        SceneManager.LoadScene("DifficultScene3");
+    //    }
+    //    Button_Move();
+    //}
     public void TITLE()
     {
         if (Input.GetKey(KeyCode.Return))
@@ -237,10 +230,11 @@ public class MenuManager : MonoBehaviour
         {
             t++;
 
-            if (t >= 3)
+            if (t >= musicNum)
             {
                 t = 0;
             }
+
         }
 
 
@@ -254,51 +248,10 @@ public class MenuManager : MonoBehaviour
 
             if (t <= -1)
             {
-                t = 2;
+                t = musicNum-1;
             }
         }
     }
 
-    public void Select1()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Kirakiraboshi_easy");
-        }
-    }
-    public void Select2()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Kirakiraboshi_hard");
-        }
-    }
-    public void Select3()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Potato_easy");
-        }
-    }
-    public void Select4()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Potato_hard");
-        }
-    }
-    public void Select5()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Kirakiraboshi_easy");
-        }
-    }
-    public void Select6()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SceneManager.LoadScene("Kirakiraboshi_hard");
-        }
-    }
+
 }

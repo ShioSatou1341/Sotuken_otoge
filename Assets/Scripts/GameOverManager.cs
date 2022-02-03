@@ -51,7 +51,8 @@ public class GameOverManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("ResultScene"); //‰¼
+            //SceneManager.LoadScene("ResultScene2"); //‰¼
+            SceneManager.LoadScene(PlayerPrefs.GetString("Play", "MenuScene")); //‰¼
         }
     }
 
