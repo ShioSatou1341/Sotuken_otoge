@@ -16,15 +16,20 @@ public class ResultManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Return))//ノーツ流し終わったら終了判定ほしかったね
+        {
+            SceneManager.LoadScene("MenuScene");//メニューにもどる
+
+        }
     }
 
     public void PushTitleBackButton()
     {
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MenuScene");//メニューにもどる
     }
     public void PushYesButton()
     {
-        SceneManager.LoadScene("PlayScene");
+        SceneManager.LoadScene("PlayScene");//
     }
+    
 }

@@ -71,7 +71,9 @@ public class GameManager : MonoBehaviour
         SetlifeText();
         SetscoreText(Score);
 
-
+        PlayerPrefs.SetString("Play", SceneManager.GetActiveScene().name);//今動かしてる譜面のシーンを取得
+        PlayerPrefs.Save();
+        
 
         inGame = true;
     }
@@ -80,33 +82,26 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //int val = int.Parse(comboText.text);
-        if (inGame == true)
-        {
-            if (Input.GetKeyUp(KeyCode.Return))//ノーツ流し終わったら終了判定ほしかったね
-            {
-                inGame = false;
+        //if (inGame == true)
+        //{
+        //    if (Input.GetKeyUp(KeyCode.Return))//ノーツ流し終わったら終了判定ほしかったね
+        //    {
+        //        inGame = false;
 
-            }
-        }
-        if (inGame == false)
-        {
-            resultCanvas.enabled = true;
-            resultText.text = (bestCombo).ToString();
-            perfectText.text = (PerfectText()).ToString();
-            greatText.text = (GreatText()).ToString();
-            goodText.text = (GoodText()).ToString();
-            badText.text = (BadText()).ToString();
-            missText.text = (MissText()).ToString();
-
-            if (Input.GetKeyDown(KeyCode.Return))//ゲームが終わった後もう一度enterで次のシーン
-            {
-
-                SceneManager.LoadScene("ResultScene");
-            }
-        }
+        //    }
+        //}
+        //if (inGame == false)
+        //{
+        //   SceneManager.LoadScene("ResultScene2");
+        //}
 
     }
 
+    public void Result()
+    {
+        SceneManager.LoadScene("ResultScene2");
+
+    }
     public void PushTitle()
     {
         SceneManager.LoadScene("StartScene");
@@ -139,6 +134,8 @@ public class GameManager : MonoBehaviour
         if (bestCombo < totalCombo)//最多コンボの記録
         {
             bestCombo = totalCombo;
+            PlayerPrefs.SetInt("MaxCombo", bestCombo);
+            PlayerPrefs.Save();
         }
 
 
@@ -190,12 +187,10 @@ public class GameManager : MonoBehaviour
         switch (num)
         {
             case 1://パフェ
-                //ComboAdd();
                 perfectNote++;
-                //回復ノーツにあたると１回復
-                //if(GameObject.Find("Heal")==true) { Life++;
+                PlayerPrefs.SetInt("Perfect", perfectNote);
+                PlayerPrefs.Save();
                 SetlifeText();
-                //}
                 Score += 50;
                 ScoreAdd();
                 SetscoreText(Score);
@@ -210,6 +205,8 @@ public class GameManager : MonoBehaviour
             case 2://グレ
                 //ComboAdd();
                 greatNote++;
+                PlayerPrefs.SetInt("Great", greatNote);
+                PlayerPrefs.Save();
                 //回復ノーツにあたると１回復
                 //if (GameObject.Find("Heal") == true)
                 //{
@@ -229,6 +226,8 @@ public class GameManager : MonoBehaviour
             case 3://グド
                 //ComboAdd();
                 goodNote++;
+                PlayerPrefs.SetInt("Good", goodNote);
+                PlayerPrefs.Save();
                 //回復ノーツにあたると１回復
                 //if (GameObject.Find("Heal") == true)
                 //{
@@ -249,6 +248,8 @@ public class GameManager : MonoBehaviour
             case 4:
                 ComboKill();
                 badNote++;
+                PlayerPrefs.SetInt("Bad", badNote);
+                PlayerPrefs.Save();
                 --Life;
                 SetlifeText();
                 judgeText.text = ("BAD");
@@ -266,6 +267,8 @@ public class GameManager : MonoBehaviour
                 --Life;
                 SetlifeText();
                 missNote++;
+                PlayerPrefs.SetInt("Miss", missNote);
+                PlayerPrefs.Save();
                 judgeText.text = ("MISS…");
                 //Debug.Log("MISS");
                 if (Life == 0)//lifeが０になったら
